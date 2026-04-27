@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 const Brand = () => {
   const brands = [
     { name: "SEA-LION", desc: "Globally established for tunnel washers and automation." },
+    { name: "IMESA", desc: "Italian engineering for robust extractors and heavy-duty drying solutions." },
     { name: "MAESTRELLI", desc: "Italian precision in PERC dry-cleaning systems." },
     { name: "MAXIPRESS", desc: "High-pressure garment finishing and steam presses." },
-    { name: "KLENCO", desc: "Premium laundry chemicals and hygiene boosters." }
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-10 md:px-24 relative overflow-hidden bg-[#F8FAFC]">
+    <div className="min-h-screen pt-32 pb-20 px-10 md:px-24 relative overflow-hidden bg-transparent">
        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-[0.09]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgba(11,60,93,0.22) 1px, transparent 1px)` }} />
        <div className="relative z-10 max-w-6xl mx-auto">
          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl font-serif mb-16 text-center drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">Our Premium Partners</motion.h1>

@@ -1,10 +1,41 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Globe, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Phone, Mail, Globe, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    company: '',
+    location: '',
+    inquiry: '',
+    details: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate async submission
+    console.log('Service Query Submitted:', formData);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setShowToast(true);
+      setFormData({ fullName: '', company: '', location: '', inquiry: '', details: '' });
+
+      // Auto-dismiss toast after 4 seconds
+      setTimeout(() => setShowToast(false), 4000);
+    }, 1200);
+  };
+
   return (
-    <div className="min-h-screen pt-32 pb-40 px-10 md:px-24 relative bg-[#F8FAFC]">
+    <div className="min-h-screen pt-28 md:pt-32 pb-24 md:pb-40 px-4 md:px-24 relative bg-transparent">
       {/* Radial Background */}
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-[0.08]" style={{ backgroundImage: `radial-gradient(circle at center, rgba(11,60,93,0.4) 0%, transparent 70%)` }} />
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(1200px_600px_at_50%_0%,rgba(11,60,93,0.06),transparent_80%)]" />
@@ -12,8 +43,8 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         
         {/* HERO SECTION */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-20 pt-10">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif text-[#0F172A] tracking-wider mb-8 leading-tight">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12 md:mb-20 pt-6 md:pt-10">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif text-[#0F172A] tracking-wider mb-6 md:mb-8 leading-tight">
             Partner with Promac
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 max-w-4xl mx-auto leading-relaxed">
@@ -22,7 +53,7 @@ const Contact = () => {
         </motion.div>
 
         {/* 2-COLUMN LAYOUT */}
-        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 max-w-7xl mx-auto">
           
           {/* LEFT COLUMN: Trust Pillar */}
           <motion.div 
@@ -31,7 +62,7 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col space-y-10"
           >
-             <div className="bg-white/60 backdrop-blur-xl border border-white/60 p-10 md:p-14 rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all flex-1 h-full flex flex-col">
+             <div className="bg-white/60 backdrop-blur-xl border border-white/60 p-6 md:p-14 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all flex-1 h-full flex flex-col">
                 <h2 className="text-4xl font-serif text-[#0F172A] mb-10 border-b border-[#0B3C5D]/10 pb-6">Headquarters</h2>
                 
                 <div className="flex items-start mb-10 group">
@@ -92,35 +123,35 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="flex flex-col"
           >
-            <form className="bg-white/70 backdrop-blur-xl border border-white/60 p-10 md:p-14 rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all flex-1" onSubmit={(e) => e.preventDefault()}>
-               <h3 className="text-3xl md:text-4xl font-serif text-[#0F172A] mb-10">Submit a Service Query</h3>
+            <form className="bg-white/70 backdrop-blur-xl border border-white/60 p-6 md:p-14 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all flex-1" onSubmit={handleSubmit}>
+               <h3 className="text-2xl md:text-4xl font-serif text-[#0F172A] mb-8 md:mb-10">Submit a Service Query</h3>
                
                <div className="space-y-8">
                   <div>
                     <label className="block text-sm font-bold text-[#0F172A] tracking-widest uppercase mb-3 text-slate-400">Full Name</label>
-                    <input type="text" className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg placeholder-slate-400 font-medium text-[#0F172A]" placeholder="e.g. John Doe" />
+                    <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg placeholder-slate-400 font-medium text-[#0F172A]" placeholder="e.g. John Doe" />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <label className="block text-sm font-bold text-[#0F172A] tracking-widest uppercase mb-3 text-slate-400">Company Name</label>
-                      <input type="text" className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg placeholder-slate-400 font-medium text-[#0F172A]" placeholder="Facility Corp Ltd" />
+                      <input type="text" name="company" value={formData.company} onChange={handleChange} className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg placeholder-slate-400 font-medium text-[#0F172A]" placeholder="Facility Corp Ltd" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-[#0F172A] tracking-widest uppercase mb-3 text-slate-400">Location</label>
-                      <input type="text" className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg placeholder-slate-400 font-medium text-[#0F172A]" placeholder="City, State" />
+                      <input type="text" name="location" value={formData.location} onChange={handleChange} className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg placeholder-slate-400 font-medium text-[#0F172A]" placeholder="City, State" />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-[#0F172A] tracking-widest uppercase mb-3 text-slate-400">Nature of Inquiry</label>
                     <div className="relative border border-[#0B3C5D]/10 rounded-[20px] bg-white/50 focus-within:ring-2 focus-within:ring-[#0B3C5D]/30 transition-all overflow-hidden">
-                      <select className="w-full bg-transparent px-6 py-5 focus:outline-none text-lg text-slate-600 appearance-none font-medium cursor-pointer">
-                        <option value="" disabled selected>Select an option...</option>
-                        <option>New Project / Consultancy</option>
-                        <option>Machine Purchase</option>
-                        <option>Spare Parts & Consumables</option>
-                        <option>Breakdown Support / AMC</option>
+                      <select name="inquiry" value={formData.inquiry} onChange={handleChange} className="w-full bg-transparent px-6 py-5 focus:outline-none text-lg text-slate-600 appearance-none font-medium cursor-pointer">
+                        <option value="" disabled>Select an option...</option>
+                        <option value="New Project / Consultancy">New Project / Consultancy</option>
+                        <option value="Machine Purchase">Machine Purchase</option>
+                        <option value="Spare Parts & Consumables">Spare Parts & Consumables</option>
+                        <option value="Breakdown Support / AMC">Breakdown Support / AMC</option>
                       </select>
                       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-6 text-[#0B3C5D]">
                         <svg className="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -130,18 +161,28 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-bold text-[#0F172A] tracking-widest uppercase mb-3 text-slate-400">Mission Details</label>
-                    <textarea rows="6" className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg resize-none placeholder-slate-400 font-medium text-[#0F172A]" placeholder="Please elaborate on your facility goals or operational issue..."></textarea>
+                    <textarea rows="6" name="details" value={formData.details} onChange={handleChange} className="w-full bg-white/50 border border-[#0B3C5D]/10 rounded-[20px] px-6 py-5 focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]/30 focus:border-[#0B3C5D]/40 transition-all text-lg resize-none placeholder-slate-400 font-medium text-[#0F172A]" placeholder="Please elaborate on your facility goals or operational issue..."></textarea>
                   </div>
                </div>
 
                <motion.button 
-                 whileHover={{ scale: 1.02 }}
-                 whileTap={{ scale: 0.98 }}
+                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                  type="submit" 
-                 className="w-full mt-12 bg-[#0B3C5D] text-white py-6 rounded-full font-bold text-lg tracking-widest uppercase shadow-xl hover:shadow-2xl hover:shadow-[#0B3C5D]/20 transition-all flex items-center justify-center group border border-[#0B3C5D]/50"
+                 disabled={isSubmitting}
+                 className={`w-full mt-12 py-6 rounded-full font-bold text-lg tracking-widest uppercase shadow-xl transition-all flex items-center justify-center group border ${isSubmitting ? 'bg-[#0B3C5D]/70 border-[#0B3C5D]/30 cursor-wait' : 'bg-[#0B3C5D] border-[#0B3C5D]/50 hover:shadow-2xl hover:shadow-[#0B3C5D]/20'} text-white`}
                >
-                 Transmit Operation Brief
-                 <ArrowRight className="ml-4 group-hover:translate-x-2 transition-transform" size={24} />
+                 {isSubmitting ? (
+                   <>
+                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                     Sending...
+                   </>
+                 ) : (
+                   <>
+                     Transmit Operation Brief
+                     <ArrowRight className="ml-4 group-hover:translate-x-2 transition-transform" size={24} />
+                   </>
+                 )}
                </motion.button>
                <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mt-6">A Promac Engineer will contact you within 24 HRS</p>
             </form>
@@ -149,6 +190,32 @@ const Contact = () => {
 
         </div>
       </div>
+
+      {/* ── Glassmorphism Success Toast ── */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 30, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] max-w-lg w-[90%]"
+          >
+            <div
+              className="flex items-center gap-4 px-8 py-5 rounded-[24px] backdrop-blur-2xl border border-white/50 shadow-[0_30px_60px_-15px_rgba(11,60,93,0.3)]"
+              style={{ backgroundColor: 'rgba(220, 234, 245, 0.85)' }}
+            >
+              <div className="w-10 h-10 bg-[#0B3C5D] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                <CheckCircle2 size={22} className="text-white" />
+              </div>
+              <div>
+                <p className="font-bold text-[#0F172A] text-sm tracking-wide">Query Received</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Our engineers will contact you within 24 hours.</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

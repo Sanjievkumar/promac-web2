@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Check } from 'lucide-react';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState('');
+
+  const isValidEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (!email.trim() || !isValidEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    console.log('Newsletter subscribed:', email);
+    setSubscribed(true);
+    setEmail('');
+
+    setTimeout(() => setSubscribed(false), 3000);
+  };
+
   return (
     <footer className="bg-[#0B3C5D] text-white pt-24 pb-10 mt-auto border-t border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05)_0%,transparent_70%)] pointer-events-none"></div>
@@ -58,13 +80,38 @@ const Footer = () => {
            </ul>
         </div>
 
-        {/* Col 4 */}
+        {/* Col 4 — Newsletter */}
         <div className="flex flex-col space-y-8">
            <h4 className="text-xs font-extrabold tracking-widest uppercase text-white/50">Engineering Updates</h4>
            <p className="text-slate-300 leading-relaxed text-sm">Subscribe to receive technical bulletins and new machinery specifications directly.</p>
-           <form className="flex w-full shadow-lg" onSubmit={(e) => e.preventDefault()}>
-             <input type="email" placeholder="Email Address" className="w-full bg-white/10 border border-white/20 rounded-l-xl px-4 py-3 focus:outline-none focus:bg-white/20 text-white placeholder-slate-400 font-medium" />
-             <button type="submit" className="bg-white text-[#0B3C5D] font-bold px-6 py-3 rounded-r-xl hover:bg-slate-200 transition-colors">Join</button>
+           <form className="flex flex-col w-full" onSubmit={handleSubscribe}>
+             <div className="flex shadow-lg">
+               <input 
+                 type="email" 
+                 placeholder="Email Address" 
+                 value={email}
+                 onChange={(e) => { setEmail(e.target.value); setError(''); }}
+                 className="w-full bg-white/10 border border-white/20 rounded-l-xl px-4 py-3 focus:outline-none focus:bg-white/20 text-white placeholder-slate-400 font-medium" 
+               />
+               <button 
+                 type="submit" 
+                 className={`font-bold px-6 py-3 rounded-r-xl transition-all duration-300 min-w-[90px] flex items-center justify-center ${
+                   subscribed 
+                     ? 'bg-emerald-400 text-white' 
+                     : 'bg-white text-[#0B3C5D] hover:bg-slate-200'
+                 }`}
+               >
+                 {subscribed ? (
+                   <span className="flex items-center gap-1.5">
+                     <Check size={18} strokeWidth={3} />
+                     <span className="text-sm">Done!</span>
+                   </span>
+                 ) : 'Join'}
+               </button>
+             </div>
+             {error && (
+               <p className="text-red-300 text-xs font-bold tracking-wide mt-2 ml-1">{error}</p>
+             )}
            </form>
         </div>
 

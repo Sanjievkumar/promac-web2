@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
 import { Zap, Monitor, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Section = ({ children, className = "" }) => (
   <section className={className}>
@@ -36,10 +37,10 @@ const Home = () => {
   const { scrollYProgress } = useScroll();
   const yBg2 = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
-  const brands = ['MAXIPRESS', 'KLENCO', 'SEA-LION', 'IMESA', 'MAESTRELLI', 'KLENCO'];
+  const brands = ['MAXIPRESS', 'SEA-LION', 'IMESA', 'MAESTRELLI', 'MAXIPRESS', 'SEA-LION', 'IMESA', 'MAESTRELLI'];
 
   return (
-    <div className="relative bg-[#F8FAFC] text-[#0F172A] font-sans overflow-hidden min-h-screen">
+    <div className="relative bg-transparent text-[#0F172A] font-sans overflow-hidden min-h-screen">
       
       {/* Background Textures */}
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgba(11,60,93,0.3) 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
@@ -50,7 +51,7 @@ const Home = () => {
       <motion.div style={{ y: yBg2 }} className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-slate-300/30 blur-[120px] pointer-events-none z-0" />
 
       {/* 1. HERO SECTION */}
-      <Section className="min-h-screen pt-40 pb-20 px-6 flex flex-col justify-start relative z-10 text-center">
+      <Section className="min-h-screen pt-32 md:pt-40 pb-16 md:pb-20 px-4 md:px-6 flex flex-col justify-start relative z-10 text-center">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }} 
@@ -64,14 +65,14 @@ const Home = () => {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif text-[#0F172A] leading-[1.1] mb-8 drop-shadow-sm">
+          <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif text-[#0F172A] leading-[1.1] mb-6 md:mb-8 drop-shadow-sm">
             Engineering Excellence<br className="hidden md:block" />
             <span className="italic font-normal">in Industrial Laundry</span>
           </h1>
 
           {/* Subtitle inside the pill-shaped box */}
-          <div className="max-w-3xl mx-auto mb-10">
-             <div className="bg-white/80 backdrop-blur-md rounded-full px-8 py-5 shadow-sm inline-block">
+          <div className="max-w-3xl mx-auto mb-8 md:mb-10 px-2">
+             <div className="bg-white/80 backdrop-blur-md rounded-2xl md:rounded-full px-6 md:px-8 py-4 md:py-5 shadow-sm inline-block">
                <p className="text-slate-500 md:text-lg leading-relaxed font-medium">
                  Leading the digital transformation of India's industrial laundry sector<br className="hidden md:block" />
                  through high-output automation and turnkey engineering.
@@ -80,22 +81,22 @@ const Home = () => {
           </div>
           
           {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center items-center gap-4">
-            <button className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-[#0B3C5D] text-white rounded-full shadow-[0_10px_20px_rgba(11,60,93,0.2)] font-bold tracking-widest text-xs uppercase hover:bg-[#082a42] hover:shadow-[0_15px_30px_rgba(11,60,93,0.3)] transition-all">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 px-4 sm:px-0">
+            <Link to="/brands" className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-[#0B3C5D] text-white rounded-full shadow-[0_10px_20px_rgba(11,60,93,0.2)] font-bold tracking-widest text-xs uppercase hover:bg-[#082a42] hover:shadow-[0_15px_30px_rgba(11,60,93,0.3)] transition-all w-full sm:w-auto">
               <span>Explore Brands</span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </button>
-            <button className="group px-8 py-4 bg-white text-[#0F172A] border border-[#0B3C5D]/10 rounded-full shadow-sm font-bold tracking-widest text-xs uppercase hover:bg-slate-50 transition-all">
+            </Link>
+            <Link to="/services" className="group px-8 py-4 bg-white text-[#0F172A] border border-[#0B3C5D]/10 rounded-full shadow-sm font-bold tracking-widest text-xs uppercase hover:bg-slate-50 transition-all w-full sm:w-auto text-center">
               Our Services
-            </button>
+            </Link>
           </div>
         </motion.div>
 
         {/* BRANDS CAROUSEL STRIP */}
         <div className="mt-24 w-full max-w-[1400px] mx-auto overflow-hidden relative">
           {/* Subtle gradient edges for the carousel */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#e8f2f9]/80 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#e8f2f9]/80 to-transparent z-10" />
           
           <div className="flex w-max">
             <motion.div 
@@ -237,18 +238,18 @@ const Home = () => {
                     </div>
                  </div>
 
-                 <button className="group flex items-center justify-between w-full md:w-auto gap-12 px-8 py-5 bg-white text-[#0B3C5D] rounded-full shadow-lg font-bold tracking-widest text-xs uppercase hover:bg-slate-50 transition-all hover:pr-6">
+                 <Link to="/brands/sea-lion" className="group flex items-center justify-between w-full md:w-auto gap-12 px-8 py-5 bg-white text-[#0B3C5D] rounded-full shadow-lg font-bold tracking-widest text-xs uppercase hover:bg-slate-50 transition-all hover:pr-6">
                     <span>View Technical Specifications</span>
                     <span className="text-lg leading-none transition-transform group-hover:translate-x-2">→</span>
-                 </button>
+                 </Link>
                </div>
             </div>
          </motion.div>
       </Section>
       
       {/* 4. STATS SECTION */}
-      <Section className="py-32 px-6 max-w-[1400px] mx-auto text-center border-t border-[#0B3C5D]/10">
-         <div className="bg-white/80 backdrop-blur-md rounded-full shadow-sm p-16 max-w-6xl mx-auto flex flex-col md:flex-row justify-around items-center gap-12">
+      <Section className="py-16 md:py-32 px-4 md:px-6 max-w-[1400px] mx-auto text-center border-t border-[#0B3C5D]/10">
+         <div className="bg-white/80 backdrop-blur-md rounded-3xl md:rounded-full shadow-sm p-8 md:p-16 max-w-6xl mx-auto flex flex-col md:flex-row justify-around items-center gap-8 md:gap-12">
             <div>
                <StatCounter end={12} suffix="+" />
                <div className="text-xs font-bold tracking-widest uppercase text-slate-400">Years Experience</div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ShieldCheck, Cpu, PackageCheck, ArrowRight, ClipboardCheck, UserCheck, Wrench, Stethoscope, CheckCircle2 } from 'lucide-react';
 
 const Service = () => {
-  const oemParts = ["Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Klenco Emulsifiers", "Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Klenco Emulsifiers", "Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Klenco Emulsifiers"];
+  const oemParts = ["Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Maxipress Steam Pads", "Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Maxipress Steam Pads", "Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Maxipress Steam Pads"];
 
   const workflow = [
     { step: "01", name: "Service Request", icon: <ClipboardCheck size={28} strokeWidth={2} /> },
@@ -14,7 +14,7 @@ const Service = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-40 px-10 md:px-24 relative bg-[#F8FAFC]">
+    <div className="min-h-screen pt-28 md:pt-32 pb-24 md:pb-40 px-4 md:px-24 relative bg-transparent">
       {/* Radial Background */}
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-[0.08]" style={{ backgroundImage: `radial-gradient(circle at center, rgba(11,60,93,0.4) 0%, transparent 70%)` }} />
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(1200px_600px_at_50%_0%,rgba(11,60,93,0.06),transparent_80%)]" />
@@ -22,8 +22,8 @@ const Service = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         
         {/* 1. HERO SECTION */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16 pt-10">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif text-[#0F172A] tracking-wider mb-10 leading-tight">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12 md:mb-16 pt-6 md:pt-10">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif text-[#0F172A] tracking-wider mb-8 md:mb-10 leading-tight">
             Uninterrupted Excellence
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 max-w-4xl mx-auto leading-relaxed">
@@ -32,7 +32,7 @@ const Service = () => {
         </motion.div>
 
         {/* 2. THE "SERVICE PILLARS" */}
-        <div className="space-y-16 max-w-7xl mx-auto py-32">
+        <div className="space-y-10 md:space-y-16 max-w-7xl mx-auto py-16 md:py-32">
           
           {/* Card 1: AMC */}
           <motion.div 
@@ -40,7 +40,7 @@ const Service = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="grid md:grid-cols-2 gap-12 items-center bg-white/60 backdrop-blur-xl border border-white/60 p-12 md:p-16 rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all"
+            className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white/60 backdrop-blur-xl border border-white/60 p-8 md:p-16 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all"
           >
             <div className="flex justify-center md:justify-center">
                <div className="w-56 h-56 bg-[#0B3C5D]/5 rounded-full flex items-center justify-center premium-shadow relative group">
@@ -64,7 +64,7 @@ const Service = () => {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true, margin: "-50px" }}
              transition={{ duration: 0.6 }}
-             className="grid md:grid-cols-2 gap-12 items-center bg-white/60 backdrop-blur-xl border border-white/60 p-12 md:p-16 rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all"
+             className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white/60 backdrop-blur-xl border border-white/60 p-8 md:p-16 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all"
           >
              <div className="order-2 md:order-1">
                 <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-8">Expert Technical Support</h3>
@@ -98,7 +98,7 @@ const Service = () => {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true, margin: "-50px" }}
              transition={{ duration: 0.6 }}
-             className="grid md:grid-cols-2 gap-12 items-center bg-white/60 backdrop-blur-xl border border-white/60 p-12 md:p-16 rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all overflow-hidden relative"
+             className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white/60 backdrop-blur-xl border border-white/60 p-8 md:p-16 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.15)] transition-all overflow-hidden relative"
           >
              <div className="flex justify-center md:justify-center">
                 <div className="w-56 h-56 bg-[#0B3C5D]/5 rounded-full flex items-center justify-center premium-shadow relative group">
@@ -108,7 +108,7 @@ const Service = () => {
              </div>
              <div>
                 <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-8">The OEM Standard</h3>
-                <p className="text-xl text-slate-500 leading-relaxed mb-6">Immediate access to genuine spare parts (belts, pads, springs, valves) and Klenco industrial chemicals to ensure machine longevity and fiber protection.</p>
+                <p className="text-xl text-slate-500 leading-relaxed mb-6">Immediate access to genuine spare parts (belts, pads, springs, valves) and premium industrial consumables to ensure machine longevity and fiber protection.</p>
                 
                 <div className="mb-10 w-full overflow-hidden relative border-y border-[#0B3C5D]/10 py-6">
                   <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#eef2f6] to-transparent z-10"></div>
@@ -138,9 +138,9 @@ const Service = () => {
           
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(11,60,93,0.06)_0%,transparent_70%)] rounded-[100px] pointer-events-none" />
           
-          <h2 className="text-5xl md:text-6xl font-serif text-center text-[#0F172A] mb-24 relative z-10">Service Workflow</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-center text-[#0F172A] mb-16 md:mb-24 relative z-10">Service Workflow</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 relative z-10">
             {/* Connecting Line (Desktop) */}
             <div className="hidden md:block absolute top-[50%] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-[#0B3C5D]/20 to-transparent z-0" />
 
@@ -171,9 +171,9 @@ const Service = () => {
         </motion.div>
 
         {/* 4. CTA SECTION */}
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto py-32">
-          <div className="bg-gradient-to-br from-[#0B3C5D]/5 to-white/60 backdrop-blur-2xl border border-white/60 p-16 md:p-24 rounded-[40px] premium-shadow text-center hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.15)] transition-all">
-            <h2 className="text-4xl md:text-6xl font-serif text-[#0F172A] mb-12 leading-tight">Is your facility due for a health check?</h2>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto py-16 md:py-32">
+          <div className="bg-gradient-to-br from-[#0B3C5D]/5 to-white/60 backdrop-blur-2xl border border-white/60 p-10 md:p-24 rounded-[30px] md:rounded-[40px] premium-shadow text-center hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.15)] transition-all">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#0F172A] mb-8 md:mb-12 leading-tight">Is your facility due for a health check?</h2>
             <Link to="/contact">
               <motion.div whileHover={{ scale: 1.05 }} className="inline-flex flex-row items-center justify-center px-10 py-5 bg-[#0B3C5D] text-white rounded-full text-lg font-bold tracking-widest uppercase premium-shadow cursor-pointer">
                 Request a Service Consultation

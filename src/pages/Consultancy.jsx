@@ -32,7 +32,7 @@ const Consultancy = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-40 px-10 md:px-24 relative bg-[#F8FAFC] overflow-hidden">
+    <div className="min-h-screen pt-28 md:pt-32 pb-24 md:pb-40 px-4 md:px-24 relative bg-transparent overflow-hidden">
       
       {/* Blueprint Grid Background for Hero */}
       <div className="absolute inset-x-0 top-0 h-[800px] z-0 pointer-events-none opacity-[0.25]" style={{ backgroundImage: 'linear-gradient(#94a3b8 1px, transparent 1px), linear-gradient(90deg, #94a3b8 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -46,7 +46,7 @@ const Consultancy = () => {
         {/* 1. HERO SECTION */}
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} className="text-center mb-32 pt-10 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-white/40 blur-[80px] pointer-events-none z-0 rounded-[100%]"></div>
-          <h1 className="relative z-10 text-6xl md:text-7xl lg:text-8xl font-serif text-[#0F172A] tracking-wide mb-10 leading-tight">
+          <h1 className="relative z-10 text-4xl md:text-6xl lg:text-8xl font-serif text-[#0F172A] tracking-wide mb-8 md:mb-10 leading-tight">
             Engineering the Future<br className="hidden md:block"/> of Laundry
           </h1>
           <p className="relative z-10 text-xl md:text-2xl text-slate-500 max-w-4xl mx-auto leading-relaxed font-bold bg-white/60 p-6 rounded-3xl backdrop-blur-sm border border-white/80">
@@ -55,7 +55,7 @@ const Consultancy = () => {
         </motion.div>
 
         {/* 2. TURNKEY PHASES (2x2 Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-40 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-24 md:mb-40 max-w-6xl mx-auto">
           {phases.map((phase, index) => (
             <motion.div
               key={phase.id}
@@ -64,7 +64,7 @@ const Consultancy = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: index * 0.15 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="bg-white/60 backdrop-blur-xl border border-white/60 hover:border-blue-400/30 p-12 md:p-16 rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(59,130,246,0.15)] transition-all flex flex-col relative overflow-hidden group"
+              className="bg-white/60 backdrop-blur-xl border border-white/60 hover:border-blue-400/30 p-8 md:p-16 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_40px_60px_-15px_rgba(59,130,246,0.15)] transition-all flex flex-col relative overflow-hidden group"
             >
               <div className="absolute -top-12 -right-4 md:-right-8 text-[12rem] font-serif font-extrabold text-[#0B3C5D] opacity-5 select-none z-0 pointer-events-none group-hover:scale-110 group-hover:opacity-10 transition-all duration-700 leading-none">
                 {phase.id}
@@ -85,7 +85,7 @@ const Consultancy = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="max-w-6xl mx-auto mb-40"
+          className="max-w-6xl mx-auto mb-24 md:mb-40"
         >
           <div className="grid md:grid-cols-5 bg-gradient-to-br from-[#0F172A] to-[#0B3C5D] rounded-[40px] premium-shadow overflow-hidden relative border border-[#1e293b] hover:shadow-[0_40px_60px_-15px_rgba(11,60,93,0.3)] transition-all">
             <div className="absolute inset-0 bg-black mix-blend-overlay opacity-20"></div>
@@ -135,9 +135,9 @@ const Consultancy = () => {
 
         {/* 4. CTA SECTION */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto py-10">
-          <div className="bg-gradient-to-br from-[#0B3C5D]/5 to-white/60 backdrop-blur-2xl border border-white/60 p-16 md:p-24 rounded-[40px] premium-shadow text-center hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.15)] transition-all">
-            <h2 className="text-4xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">Ready for a complete facility audit?</h2>
-            <p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto">Engage directly with our core engineering team to map your physical requirements and blueprint.</p>
+          <div className="bg-gradient-to-br from-[#0B3C5D]/5 to-white/60 backdrop-blur-2xl border border-white/60 p-10 md:p-24 rounded-[30px] md:rounded-[40px] premium-shadow text-center hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.15)] transition-all">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#0F172A] mb-6 md:mb-8 leading-tight">Ready for a complete facility audit?</h2>
+            <p className="text-lg md:text-xl text-slate-500 mb-10 md:mb-12 max-w-2xl mx-auto">Engage directly with our core engineering team to map your physical requirements and blueprint.</p>
             
             <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <motion.div whileHover={{ scale: 1.05 }} className="inline-flex flex-row items-center justify-center px-10 py-5 bg-[#0B3C5D] text-white rounded-full text-lg font-bold tracking-widest uppercase premium-shadow cursor-pointer mb-6">

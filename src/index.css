@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#F8FAFC] text-[#0F172A] font-sans antialiased selection:bg-[#0B3C5D]/20 selection:text-[#0B3C5D];
+  @apply bg-transparent text-[#0F172A] font-sans antialiased selection:bg-[#0B3C5D]/20 selection:text-[#0B3C5D];
 }
 .font-serif {
   font-family: 'Playfair Display', serif;

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView, animate } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const AnimatedCounter = ({ from, to, duration = 2 }) => {
   const ref = useRef(null);
@@ -23,8 +24,9 @@ const AnimatedCounter = ({ from, to, duration = 2 }) => {
   return <span ref={ref}>{from}+</span>;
 };
 
-const Section = ({ children, className = "" }) => (
+const Section = ({ children, className = "", id }) => (
   <motion.section 
+    id={id}
     initial={{ opacity: 0, y: 40 }} 
     whileInView={{ opacity: 1, y: 0 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
@@ -52,10 +54,10 @@ const About = () => {
     { num: "04", title: "Support", desc: "AMC and unrivaled after-sales support with genuine spare parts.", tag: "Outcome: Near-Zero Downtime" }
   ];
 
-  const partners = ['SEA-LION', 'IMESA', 'MAESTRELLI', 'MAXIPRESS', 'KLENCO'];
+  const partners = ['SEA-LION', 'IMESA', 'MAESTRELLI', 'MAXIPRESS'];
 
   return (
-    <div className="relative bg-[#F8FAFC] text-[#0F172A] font-sans overflow-hidden">
+    <div className="relative bg-transparent text-[#0F172A] font-sans overflow-hidden">
       {/* Motion Vignette Background */}
       <motion.div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-[0.08]" 
         style={{ backgroundImage: `radial-gradient(circle at center, rgba(11,60,93,0.4) 0%, transparent 70%)` }} 
@@ -69,16 +71,20 @@ const About = () => {
       <motion.div style={{ y: yBg2 }} className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-slate-400/20 blur-[100px] pointer-events-none z-0" />
 
       {/* 1. HERO UPGRADE */}
-      <Section className="min-h-[100vh] pt-32 pb-40 px-10 md:px-24 flex flex-col justify-center relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+      <Section className="min-h-[100vh] pt-28 md:pt-32 pb-24 md:pb-40 px-4 md:px-24 flex flex-col justify-center relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9 }}>
-            <h1 className="text-5xl md:text-6xl font-serif mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.6)] text-[#0F172A] leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.6)] text-[#0F172A] leading-tight">
               A Journey Built on Expertise
             </h1>
             <p className="text-slate-500 max-w-lg text-lg leading-relaxed mb-8">
               Decades of hands-on industry experience, providing advanced commercial laundry machines across India. We champion technological innovation and sustainable operations.
             </p>
-            <motion.div whileHover={{ scale: 1.05 }} className="inline-block px-8 py-4 bg-[#0B3C5D] text-white rounded-full shadow-lg font-medium cursor-pointer tracking-wide">
+            <motion.div 
+              whileHover={{ scale: 1.05 }} 
+              onClick={() => document.getElementById('our-journey')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-block px-8 py-4 bg-[#0B3C5D] text-white rounded-full shadow-lg font-medium cursor-pointer tracking-wide"
+            >
               Discover Our Roots
             </motion.div>
           </motion.div>
@@ -94,8 +100,8 @@ const About = () => {
       </Section>
 
       {/* 2. THE "WHY PROMAC" SECTION */}
-      <Section className="pt-20 pb-40 px-10 md:px-24 relative z-10 max-w-7xl mx-auto">
-        <div className="bg-white/70 backdrop-blur-xl border border-white/60 p-12 md:p-20 rounded-[40px] premium-shadow hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.10)] transition-all duration-500">
+      <Section id="our-journey" className="pt-12 md:pt-20 pb-24 md:pb-40 px-4 md:px-24 relative z-10 max-w-7xl mx-auto">
+        <div className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 md:p-20 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.10)] transition-all duration-500">
           <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-2 text-center md:text-left border-b md:border-b-0 md:border-r border-[#0B3C5D]/10 pb-10 md:pb-0 md:pr-10 flex flex-col justify-center h-full">
               <h2 className="text-7xl lg:text-9xl font-serif text-[#0B3C5D] leading-none mb-4 drop-shadow-sm flex items-center justify-center md:justify-start">
@@ -129,9 +135,9 @@ const About = () => {
       </Section>
 
       {/* 3. OUR TURNKEY PROCESS (Interactive Timeline) */}
-      <Section className="pt-20 pb-40 px-10 md:px-24 relative z-10">
+      <Section className="pt-12 md:pt-20 pb-24 md:pb-40 px-4 md:px-24 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-5xl font-serif mb-24 text-center text-[#0F172A]">Our Turnkey Process</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-16 md:mb-24 text-center text-[#0F172A]">Our Turnkey Process</h2>
           
           <div className="relative">
             {/* The vertical process line */}
@@ -187,10 +193,10 @@ const About = () => {
       </Section>
 
       {/* 4. TECHNICAL LEADERSHIP */}
-      <Section className="pt-20 pb-40 px-10 md:px-24 relative z-10">
-        <h2 className="text-5xl font-serif text-center mb-16 text-[#0F172A]">Technical Leadership</h2>
+      <Section className="pt-12 md:pt-20 pb-24 md:pb-40 px-4 md:px-24 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-serif text-center mb-12 md:mb-16 text-[#0F172A]">Technical Leadership</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Flagship Product */}
           <div className="bg-gradient-to-br from-[#0B3C5D]/5 to-transparent backdrop-blur-xl border border-[#0B3C5D]/20 p-12 rounded-[40px] premium-shadow hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.15)] transition-all duration-300">
             <div className="bg-[#0B3C5D] text-white text-xs font-bold px-4 py-2 rounded-full inline-block uppercase tracking-widest mb-6 shadow-md">Flagship Standard</div>
@@ -206,15 +212,17 @@ const About = () => {
             <p className="text-lg text-slate-500 leading-relaxed mb-8">
               Our pledge to <span className="font-semibold text-[#0B3C5D]">unrivaled after-sales support</span> means downtime is kept at near-zero. We maintain a huge, active inventory of certified manufacturer components for virtually all major commercial laundry brands operating across the country.
             </p>
-            <motion.div whileHover={{ x: 10 }} className="text-[#0B3C5D] font-bold tracking-widest uppercase text-sm flex items-center cursor-pointer">
-              Explore Our Inventory <span className="ml-2">→</span>
-            </motion.div>
+            <Link to="/brands">
+              <motion.div whileHover={{ x: 10 }} className="text-[#0B3C5D] font-bold tracking-widest uppercase text-sm flex items-center cursor-pointer">
+                Explore Our Inventory <span className="ml-2">→</span>
+              </motion.div>
+            </Link>
           </div>
         </div>
       </Section>
 
       {/* 5. GLOBAL PARTNERSHIP GRID */}
-      <Section className="pt-24 pb-40 px-10 md:px-24 relative z-10 max-w-6xl mx-auto border-t border-[#0B3C5D]/10">
+      <Section className="pt-16 md:pt-24 pb-24 md:pb-40 px-4 md:px-24 relative z-10 max-w-6xl mx-auto border-t border-[#0B3C5D]/10">
         <p className="text-center text-sm font-bold tracking-widest text-slate-500 uppercase mb-16">Global Engineering Partners</p>
         <div className="flex flex-wrap justify-center md:justify-around items-center gap-12 font-serif font-bold">
           {partners.map((partner) => (
@@ -234,9 +242,9 @@ const About = () => {
       </Section>
 
       {/* 6. MISSION & VISION */}
-      <Section className="pt-24 pb-48 px-10 md:px-24 relative z-10 text-center max-w-6xl mx-auto">
-        <div className="bg-white/60 backdrop-blur-2xl border border-white/60 p-16 md:p-24 rounded-[40px] premium-shadow hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.1)] transition-all duration-500">
-          <p className="text-3xl md:text-6xl font-serif text-[#0B3C5D] leading-normal italic drop-shadow-sm mb-10 max-w-4xl mx-auto">
+      <Section className="pt-16 md:pt-24 pb-32 md:pb-48 px-4 md:px-24 relative z-10 text-center max-w-6xl mx-auto">
+        <div className="bg-white/60 backdrop-blur-2xl border border-white/60 p-10 md:p-24 rounded-[30px] md:rounded-[40px] premium-shadow hover:shadow-[0_20px_40px_-5px_rgba(11,60,93,0.1)] transition-all duration-500">
+          <p className="text-2xl md:text-4xl lg:text-6xl font-serif text-[#0B3C5D] leading-normal italic drop-shadow-sm mb-10 max-w-4xl mx-auto">
             "Our mission is to bridge the gap between industrial necessity and technological elegance."
           </p>
           <div className="w-20 h-[2px] bg-[#0B3C5D]/20 mx-auto mb-6" />
