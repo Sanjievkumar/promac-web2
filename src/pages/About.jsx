@@ -54,7 +54,7 @@ const About = () => {
     { num: "04", title: "Support", desc: "AMC and unrivaled after-sales support with genuine spare parts.", tag: "Outcome: Near-Zero Downtime" }
   ];
 
-  const partners = ['SEA-LION', 'IMESA', 'MAESTRELLI', 'MAXIPRESS'];
+  const partners = ['SEA-LION', 'KANNEGIESSER', 'MAESTRELLI', 'MAXIPRESS'];
 
   return (
     <div className="relative bg-transparent text-[#0F172A] font-sans overflow-hidden">

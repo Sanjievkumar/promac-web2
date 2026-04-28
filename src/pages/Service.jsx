@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ShieldCheck, Cpu, PackageCheck, ArrowRight, ClipboardCheck, UserCheck, Wrench, Stethoscope, CheckCircle2 } from 'lucide-react';
 
 const Service = () => {
-  const oemParts = ["Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Maxipress Steam Pads", "Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Maxipress Steam Pads", "Maestrelli Filters", "Sea-Lion Bearings", "Imesa Heating Elements", "Maxipress Steam Pads"];
+  const oemParts = ["Maestrelli Filters", "Sea-Lion Bearings", "Kannegiesser Elements", "Maxipress Steam Pads", "Maestrelli Filters", "Sea-Lion Bearings", "Kannegiesser Elements", "Maxipress Steam Pads", "Maestrelli Filters", "Sea-Lion Bearings", "Kannegiesser Elements", "Maxipress Steam Pads"];
 
   const workflow = [
     { step: "01", name: "Service Request", icon: <ClipboardCheck size={28} strokeWidth={2} /> },
@@ -68,7 +68,7 @@ const Service = () => {
           >
              <div className="order-2 md:order-1">
                 <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-8">Expert Technical Support</h3>
-                <p className="text-xl text-slate-500 leading-relaxed mb-10">A nationwide network of certified engineers specializing in advanced electronics and mechanical repair for Sea-Lion, Imesa, and Maestrelli systems.</p>
+                <p className="text-xl text-slate-500 leading-relaxed mb-10">A nationwide network of certified engineers specializing in advanced electronics and mechanical repair for Sea-Lion, Kannegiesser, and Maestrelli systems.</p>
                 
                 <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {["PLC Troubleshooting", "Steam Line Integration", "VFD Programming", "Pneumatic System Overhaul"].map((skill, idx) => (

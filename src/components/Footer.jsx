@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Check } from 'lucide-react';
+import logo from '../assets/promac-logo.png';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -33,7 +34,7 @@ const Footer = () => {
         
         {/* Col 1 */}
         <div className="flex flex-col space-y-6 items-start">
-           <img src="/src/assets/promac-logo.png" alt="Promac Logo" className="h-10 w-auto object-contain bg-white/10 p-1 rounded backdrop-blur-sm" />
+           <img src={logo} alt="Promac Logo" className="h-12 w-auto brightness-0 invert opacity-90" />
            <p className="text-slate-300 leading-relaxed max-w-sm">
              India's premier turnkey partner for advanced laundry systems, rapid breakdown support, and genuine OEM parts.
            </p>

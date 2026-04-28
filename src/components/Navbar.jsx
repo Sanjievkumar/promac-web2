@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/promac-logo.png';
 
 const navLinks = [
   { to: '/', label: 'HOME' },
@@ -31,7 +32,7 @@ const Navbar = () => {
       <nav className="fixed top-0 w-full flex justify-between items-center px-6 md:px-24 py-5 text-xs tracking-[0.3em] z-50 bg-white/70 backdrop-blur-md border-b border-black/5">
         {/* Logo */}
         <Link to="/" className="hover:opacity-80 transition-opacity">
-          <img src="/src/assets/promac-logo.png" alt="Promac Logo" className="h-10 w-auto object-contain" />
+          <img src={logo} alt="Promac Logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Links */}

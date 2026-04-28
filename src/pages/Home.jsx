@@ -37,7 +37,7 @@ const Home = () => {
   const { scrollYProgress } = useScroll();
   const yBg2 = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
-  const brands = ['MAXIPRESS', 'SEA-LION', 'IMESA', 'MAESTRELLI', 'MAXIPRESS', 'SEA-LION', 'IMESA', 'MAESTRELLI'];
+  const brands = ['MAXIPRESS', 'SEA-LION', 'KANNEGIESSER', 'MAESTRELLI', 'MAXIPRESS', 'SEA-LION', 'KANNEGIESSER', 'MAESTRELLI'];
 
   return (
     <div className="relative bg-transparent text-[#0F172A] font-sans overflow-hidden min-h-screen">

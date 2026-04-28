@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Brands = () => {
   const brandsData = [
     { name: "SEA-LION", slug: "sea-lion", desc: "Globally established for tunnel washers and ultra-efficient automation.", logo: "SEA-LION", feature: "Automation Systems" },
-    { name: "IMESA", slug: "imesa", desc: "Italian engineering for robust extractors and heavy-duty drying solutions.", logo: "IMESA", feature: "Smart Connectivity" },
+    { name: "KANNEGIESSER", slug: "kannegiesser", desc: "The World Market Leader in Industrial Laundry Technology.", logo: "KANNEGIESSER", feature: "Integrated Systems" },
     { name: "MAESTRELLI", slug: "maestrelli", desc: "Italian precision in PERC dry-cleaning systems and garment care.", logo: "MAESTRELLI", feature: "Eco-Engineering" },
     { name: "MAXIPRESS", slug: "maxipress", desc: "High-pressure garment finishing and commercial steam presses.", logo: "MAXIPRESS", feature: "Steam Ironing Tables" },
   ];
