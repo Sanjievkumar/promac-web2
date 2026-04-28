@@ -25,10 +25,17 @@ const seaLionProducts = [
   { image: '/src/assets/Brands/sea-lion brand/AUTOMATIC LINEN FOLDER WITH STACKER.png', name: 'Automatic Linen Folder With Stacker' },
 ];
 
-/* ── Imesa ── */
-const imesaProducts = [
-  { image: '/src/assets/Brands/Imesa brand/Washing Machine.png', name: 'Washing Machine' },
-  { image: '/src/assets/Brands/Imesa brand/Dryers.png', name: 'Dryers' },
+/* ── Kannegiesser ── */
+const kannegiesserProducts = [
+  { image: '/src/assets/Brands/Kannegiesser brand/301868_Powertrans_SBW_11_persp04.jpg', name: 'Powertrans SBW' },
+  { image: '/src/assets/Brands/Kannegiesser brand/313434_EMQ_Halle_Keyvisual.jpg', name: 'EMQ Series' },
+  { image: '/src/assets/Brands/Kannegiesser brand/317640_SHM_Halle.jpg', name: 'SHM System' },
+  { image: '/src/assets/Brands/Kannegiesser brand/317673_Kannegiesser_CFM_Halle.jpg', name: 'CFM Feeding Machine' },
+  { image: '/src/assets/Brands/Kannegiesser brand/317673_Rangemotiv_Halle_extend_POWER-DRY.jpg', name: 'Power-Dry' },
+  { image: '/src/assets/Brands/Kannegiesser brand/317673_Rangemotiv_Halle_extend_POWERPRESS.jpg', name: 'Powerpress' },
+  { image: '/src/assets/Brands/Kannegiesser brand/317673_Speedline_XFM_Halle.jpg', name: 'Speedline XFM' },
+  { image: '/src/assets/Brands/Kannegiesser brand/321512_EMV_Halle.jpg', name: 'EMV Extraction' },
+  { image: '/src/assets/Brands/Kannegiesser brand/331605_Kannegiesser_SFM_E_2022_in Halle.png', name: 'SFM E Folding' },
 ];
 
 /* ── Maestrelli ── */
@@ -68,18 +75,18 @@ const brandsData = {
     products: seaLionProducts,
   },
 
-  'imesa': {
-    slug: 'imesa',
-    name: 'IMESA',
-    tagline: 'Italian engineering for robust extractors and heavy-duty drying solutions.',
-    feature: 'Smart Connectivity',
-    categories: ['Laundry Management Systems', 'Smart Connectivity Washers', 'Tumble Dryers', 'Flatwork Ironers'],
+  'kannegiesser': {
+    slug: 'kannegiesser',
+    name: 'KANNEGIESSER',
+    tagline: 'Global Leader in Integrated Laundry Technology.',
+    feature: 'Integrated Systems',
+    categories: ['Batch Washers', 'Extraction Technologies', 'Drying Systems', 'Flatwork Finishing'],
     specs: [
-      { series: 'LM Series Washers', capacity: '8kg – 120kg', automation: 'IM11 Touchscreen Core', tech: 'Smart Connectivity' },
-      { series: 'ES Series Dryers', capacity: '10kg – 34kg', automation: 'Programmable', tech: 'Reversing Drum' },
-      { series: 'MCA Ironers', capacity: '1500mm – 3200mm', automation: 'Variable Speed', tech: 'Chest Heating Tech' },
+      { series: 'PowerTrans', capacity: 'High Volume', automation: 'Fully Integrated', tech: 'Active Drop Technology' },
+      { series: 'PowerPress', capacity: 'Heavy Duty', automation: 'Pneumatic System', tech: 'Top Drainage' },
+      { series: 'PowerDry', capacity: 'Industrial', automation: 'Sensor Controlled', tech: 'Infrared Tech' },
     ],
-    products: imesaProducts,
+    products: kannegiesserProducts,
   },
 
   'maestrelli': {

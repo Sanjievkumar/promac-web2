@@ -32,8 +32,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         
         {/* Col 1 */}
-        <div className="flex flex-col space-y-6">
-           <h2 className="text-4xl font-serif tracking-wider">Promac</h2>
+        <div className="flex flex-col space-y-6 items-start">
+           <img src="/src/assets/promac-logo.png" alt="Promac Logo" className="h-10 w-auto object-contain bg-white/10 p-1 rounded backdrop-blur-sm" />
            <p className="text-slate-300 leading-relaxed max-w-sm">
              India's premier turnkey partner for advanced laundry systems, rapid breakdown support, and genuine OEM parts.
            </p>

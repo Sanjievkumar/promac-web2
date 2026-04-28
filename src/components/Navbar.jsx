@@ -30,9 +30,9 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 w-full flex justify-between items-center px-6 md:px-24 py-5 text-xs tracking-[0.3em] z-50 bg-white/70 backdrop-blur-md border-b border-black/5">
         {/* Logo */}
-        <div className="font-serif text-lg tracking-normal font-bold">
-          <Link to="/" className="hover:text-[#0B3C5D] transition-colors">PROMAC</Link>
-        </div>
+        <Link to="/" className="hover:opacity-80 transition-opacity">
+          <img src="/src/assets/promac-logo.png" alt="Promac Logo" className="h-10 w-auto object-contain" />
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden lg:flex gap-8">

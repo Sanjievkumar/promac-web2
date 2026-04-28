@@ -14,7 +14,7 @@ import Contact from './pages/Contact';
 
 // Brands Pages
 import SeaLion from './pages/brands/SeaLion';
-import Imesa from './pages/brands/Imesa';
+import Kannegiesser from './pages/brands/Kannegiesser';
 import Maestrelli from './pages/brands/Maestrelli';
 import Maxipress from './pages/brands/Maxipress';
 
@@ -30,7 +30,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/brands" element={<PageTransition><Brands /></PageTransition>} />
         <Route path="/brands/sea-lion" element={<PageTransition><SeaLion /></PageTransition>} />
-        <Route path="/brands/imesa" element={<PageTransition><Imesa /></PageTransition>} />
+        <Route path="/brands/kannegiesser" element={<PageTransition><Kannegiesser /></PageTransition>} />
         <Route path="/brands/maestrelli" element={<PageTransition><Maestrelli /></PageTransition>} />
         <Route path="/brands/maxipress" element={<PageTransition><Maxipress /></PageTransition>} />
 
